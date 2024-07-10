@@ -1,0 +1,22 @@
+<div class="main-container">
+  <form>
+    <div class="form-control input-container">
+      <input
+        class="text-input"
+        type="text"
+        name="password"
+        [(ngModel)]="password"
+        id="password"
+        placeholder="Password"
+      />
+      <button
+        type="submit"
+        class="button submit-button"
+        (click)="validatePassword(password)"
+      >
+        Validate
+      </button>
+    </div>
+  </form>
+  <button routerLink="/" class="button home-button">Home page</button>
+</div>

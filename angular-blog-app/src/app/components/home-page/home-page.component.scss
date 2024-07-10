@@ -1,0 +1,21 @@
+.button-container {
+  background: linear-gradient(to right, #c2e3f0, #7693a5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.button {
+  margin: 0 4rem;
+  padding: 1.8rem 4rem;
+  font-size: 1.8rem;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 0.6rem;
+  background-color: #1b4d3e;
+
+  &:hover {
+    background-color: #006a4e;
+  }
+}
