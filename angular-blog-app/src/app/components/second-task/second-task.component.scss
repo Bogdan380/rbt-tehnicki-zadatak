@@ -1,0 +1,153 @@
+// Color variables
+$black: #000000;
+$white: #ffffff;
+$gold3: #cdad00;
+$gold4: #8b7500;
+
+// Font family variables
+$font-arial: "Arial", sans-serif;
+$font-times: "Times New Roman", sans-serif;
+
+// Font size variables
+$font-size-14: 14px;
+$font-size-16: 16px;
+
+$spices-image-url: "/assets/spices.png";
+
+.container {
+  margin: 0 auto;
+  width: 90rem;
+  height: 60rem;
+}
+
+.image-container {
+  width: 100%;
+  height: 17rem;
+  background-image: url(#{$spices-image-url});
+  background-repeat: repeat;
+  background-size: 50% 100%;
+  margin-bottom: 3rem;
+}
+
+.spices-container {
+  display: flex;
+  gap: 5rem;
+}
+
+.text-container {
+  font-family: $font-times;
+  font-size: $font-size-14;
+  color: $black;
+  background-color: $gold3;
+  width: 30rem;
+  height: 40rem;
+  padding: 2rem 1rem;
+}
+
+#spices-heading {
+  color: $white;
+  text-align: center;
+  margin-bottom: 1.6rem;
+}
+
+.spices-text {
+  text-align: justify;
+}
+
+.spices-list {
+  font-size: $font-size-16;
+  padding-left: 4rem;
+
+  &.outer-list {
+    list-style: square;
+    padding-top: 1.4rem;
+    padding-bottom: 1.4rem;
+  }
+}
+
+.table-link {
+  color: $white;
+  text-decoration: underline;
+
+  &:hover {
+    color: $black;
+    cursor: pointer;
+  }
+}
+
+.right-container {
+  width: 55rem;
+}
+
+.safran-container {
+  position: relative;
+  height: 50%;
+}
+
+.safran-image {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.table-container {
+  font-family: $font-times;
+  font-size: $font-size-16;
+  color: $black;
+  height: 50%;
+  background-color: $gold4;
+  padding: 2rem;
+}
+
+table,
+td {
+  border: 1px solid;
+}
+
+.spice-table {
+  width: 100%;
+}
+
+.table-cell {
+  text-align: center;
+  line-height: 1.5;
+}
+
+.table-paragraph {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.wiki-link {
+  color: $gold3;
+  text-decoration: underline;
+
+  &:hover {
+    color: $black;
+  }
+}
+
+.table-info {
+  font-family: $font-arial;
+  font-size: $font-size-14;
+  margin-top: 1.6rem;
+  text-align: center;
+}
+
+.button {
+  padding: 1rem 2rem;
+  font-size: $font-size-16;
+  color: $white;
+  border: none;
+  border-radius: 0.6rem;
+  cursor: pointer;
+
+  &.home-button {
+    background-color: #e63946;
+    margin: 10rem 0;
+
+    &:hover {
+      background-color: #c6313e;
+    }
+  }
+}

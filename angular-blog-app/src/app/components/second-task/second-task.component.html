@@ -1,1 +1,79 @@
-<p>second-task works!</p>
+<div class="container">
+  <div class="image-container"></div>
+  <div class="spices-container">
+    <div class="text-container">
+      <h2 id="spices-heading">Začini</h2>
+      <p class="spices-text">
+        Zanimljivo je na koji način su začini uticali na tokove civilizacija.
+        Korišćeni su u narodnoj medicini, ishrani, proizvodnji parfema... Danas
+        su u upotrebi mnogobrojni začini, a samo neki od njih su:
+      </p>
+      <ul class="spices-list outer-list">
+        <li>
+          <p>biber</p>
+          <ul class="spices-list">
+            <li>beli</li>
+            <li>crni</li>
+            <li>zeleni</li>
+          </ul>
+        </li>
+        <li>šafran</li>
+        <li>kurkuma</li>
+        <li>kardamon</li>
+      </ul>
+      <p class="spices-text">
+        Prvi začini kojima se trgovalo su <strong><em>biber</em></strong> i
+        <strong><em>cimet</em></strong
+        >, a vreme za koje se podatak vezuje je čak 2000 godina pre nove ere.
+      </p>
+      <div style="width: 100%; text-align: center; margin-top: 1.4rem">
+        <a class="table-link" (click)="scrollTo(tableRef)"
+          >skok na tabelu sa podacima o proizvodnji</a
+        >
+      </div>
+    </div>
+    <div class="right-container">
+      <div class="safran-container">
+        <img
+          src="assets/safran.png"
+          class="safran-image"
+          width="153"
+          height="86"
+          alt="safran"
+        />
+      </div>
+      <div class="table-container">
+        <p class="table-paragraph">Proizvodnja začina po zemljama *</p>
+        <table class="spice-table" #tableRef>
+          <tr>
+            <td class="table-cell">Indija</td>
+            <td class="table-cell">Bangladeš</td>
+            <td class="table-cell">Turska</td>
+            <td class="table-cell">Kina</td>
+            <td class="table-cell">Pakistan</td>
+          </tr>
+          <tr>
+            <td class="table-cell">70%</td>
+            <td class="table-cell">9%</td>
+            <td class="table-cell">5.7%</td>
+            <td class="table-cell">5.5%</td>
+            <td class="table-cell">3%</td>
+          </tr>
+        </table>
+        <p class="table-info">
+          Izvor informacija:
+          <a class="wiki-link" href="https://www.wikipedia.com" target="_blank"
+            >Wikipedia</a
+          >
+        </p>
+        <p class="table-info">
+          * &#x23AF; podaci se odnose na period 2009.-2010. godina
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="display: flex; justify-content: center; align-items: center">
+  <button routerLink="/" class="button home-button">Home page</button>
+</div>
