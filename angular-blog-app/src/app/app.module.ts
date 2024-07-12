@@ -10,6 +10,9 @@ import { AppComponent } from './app.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { FirstTaskComponent } from './components/first-task/first-task.component';
 import { SecondTaskComponent } from './components/second-task/second-task.component';
+import {AuthModule} from "@auth0/auth0-angular";
+import {environment} from "../environments/environment";
+import { ThirdTaskComponent } from './components/third-task/third-task.component';
 
 @NgModule({
   declarations: [
@@ -17,11 +20,21 @@ import { SecondTaskComponent } from './components/second-task/second-task.compon
     HomePageComponent,
     FirstTaskComponent,
     SecondTaskComponent,
+    ThirdTaskComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
+    AuthModule.forRoot({
+      ...environment.auth,
+      authorizationParams: {
+        redirect_uri: window.location.origin
+      },
+      httpInterceptor: {
+        allowedList: []
+      }
+    }),
     StoreModule.forRoot({}, {}),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),

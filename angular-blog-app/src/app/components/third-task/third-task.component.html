@@ -1,0 +1,10 @@
+<header>
+  <nav>
+    <a class="home-page-link" routerLink="/">Home Page</a>
+    @if (auth.isAuthenticated$ | async) {
+    <img src="{{user.picture}}" height="50" width="50" class="profile-picture" alt="Profile picture" (click)="auth.logout()"/>
+    } @else {
+    <button class="login-button" (click)="auth.loginWithPopup()">Login</button>
+    }
+  </nav>
+</header>

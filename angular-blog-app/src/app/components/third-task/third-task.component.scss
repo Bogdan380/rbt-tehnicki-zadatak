@@ -1,0 +1,55 @@
+$primary-color: #1b4d3e;
+$secondary-color: #006a4e;
+$background-color: #c2e3f0;
+$white-color: #fff;
+$font-size-large: 1.8rem;
+
+
+header {
+  background-color: $background-color;
+  padding: 1.5rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  nav {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .login-button {
+    padding: 0.8rem 2.4rem;
+    font-size: $font-size-large;
+    color: $white-color;
+    text-decoration: none;
+    border-radius: 0.6rem;
+    background-color: $primary-color;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $secondary-color;
+    }
+  }
+
+  .home-page-link {
+    color: $primary-color;
+    font-size: $font-size-large;
+    text-decoration: none;
+    font-weight: 500;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.profile-picture {
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+}

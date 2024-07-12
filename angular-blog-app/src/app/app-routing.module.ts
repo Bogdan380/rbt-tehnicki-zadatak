@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { FirstTaskComponent } from './components/first-task/first-task.component';
 import { SecondTaskComponent } from './components/second-task/second-task.component';
+import { ThirdTaskComponent } from "./components/third-task/third-task.component";
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'second-task',
     component: SecondTaskComponent,
+  },
+  {
+    path: 'third-task',
+    component: ThirdTaskComponent,
   },
   {
     path: '**',
