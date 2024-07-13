@@ -18,6 +18,11 @@ $border-radius: 0.6rem;
   font-weight: 500;
 }
 
+.message {
+  font-size: $font-size-medium;
+  margin-top: 1rem;
+}
+
 mat-card {
   margin: 3rem 0;
   box-shadow: rgba(0, 0, 0, 0.1) 0 2px 8px 2px;
