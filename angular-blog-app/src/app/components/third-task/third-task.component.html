@@ -2,9 +2,30 @@
   <nav>
     <a class="home-page-link" routerLink="/">Home Page</a>
     @if (auth.isAuthenticated$ | async) {
-    <img src="{{user.picture}}" height="50" width="50" class="profile-picture" alt="Profile picture" (click)="auth.logout()"/>
+    <div class="logout-container">
+      <img
+        src="{{ user.picture }}"
+        height="45"
+        width="45"
+        class="profile-picture"
+        alt="Profile picture"
+      />
+      <div class="user-info">
+        <p>Welcome,</p>
+        <p>{{ user.name }}</p>
+      </div>
+      <button
+        class="nav-button"
+        (click)="auth.logout({ logoutParams: { returnTo: document.URL } })"
+      >
+        Logout
+      </button>
+    </div>
+
     } @else {
-    <button class="login-button" (click)="auth.loginWithPopup()">Login</button>
+    <button class="nav-button" (click)="auth.loginWithPopup()">Login</button>
     }
   </nav>
 </header>
+
+<router-outlet></router-outlet>

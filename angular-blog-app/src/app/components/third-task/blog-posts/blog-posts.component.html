@@ -1,0 +1,13 @@
+<h2 style="margin-top: 4rem">Movies</h2>
+
+@if (loading$ | async) {
+<div>Loading...</div>
+} @if (blogPosts$ | async; as blogPosts) { @for (blogPost of blogPosts; track
+blogPost.id) {
+<div>
+  <p>{{ blogPost.name }}</p>
+  <div>{{ blogPost.description }}</div>
+</div>
+}} @if(error$ | async) {
+<div>Error fetching data!</div>
+}
