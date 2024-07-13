@@ -1,13 +1,22 @@
-<h2 style="margin-top: 4rem">Movies</h2>
+<div class="container">
+  <h2 class="movies-heading">Movies</h2>
 
-@if (loading$ | async) {
-<div>Loading...</div>
-} @if (blogPosts$ | async; as blogPosts) { @for (blogPost of blogPosts; track
-blogPost.id) {
-<div>
-  <p>{{ blogPost.name }}</p>
-  <div>{{ blogPost.description }}</div>
+  @if (loading$ | async) {
+  <div class="message">Loading...</div>
+  } @if (blogPosts$ | async) { @for (movie of pagedMovies; track movie.id) {
+  <mat-card>
+    <mat-card-title>{{ movie.name }}</mat-card-title>
+    <mat-card-content id="no-padding">{{ movie.description }}</mat-card-content>
+  </mat-card>
+  }} @if(error$ | async) {
+  <div class="message">Error fetching data!</div>
+  }
+
+  <mat-paginator
+    [length]="blogPosts.length"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="[5]"
+    (page)="handlePageEvent($event)"
+  >
+  </mat-paginator>
 </div>
-}} @if(error$ | async) {
-<div>Error fetching data!</div>
-}

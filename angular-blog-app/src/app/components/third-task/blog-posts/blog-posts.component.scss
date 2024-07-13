@@ -1,0 +1,48 @@
+$primary-color: #1b4d3e;
+$secondary-color: #006a4e;
+$background-color: #c2e3f0;
+$white-color: #fff;
+$black-color: #000;
+$font-size-large: 2.4rem;
+$font-size-medium: 1.6rem;
+$font-size-small: 1.4rem;
+$border-radius: 0.6rem;
+
+.container {
+  padding: 3rem 6rem;
+  width: 80%;
+}
+
+.movies-heading {
+  font-size: $font-size-large;
+  font-weight: 500;
+}
+
+mat-card {
+  margin: 3rem 0;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 8px 2px;
+  border-radius: $border-radius;
+  padding: 1rem 2rem;
+}
+
+mat-card-title {
+  font-size: $font-size-medium;
+  margin-bottom: 1rem;
+}
+
+mat-card-content {
+  font-size: $font-size-small;
+  padding: 0;
+}
+
+mat-paginator {
+  background-color: $background-color;
+  margin: 2rem auto;
+  width: 60%;
+  border-radius: $border-radius;
+  font-size: $font-size-medium;
+}
+
+#no-padding {
+  padding-bottom: 0;
+}

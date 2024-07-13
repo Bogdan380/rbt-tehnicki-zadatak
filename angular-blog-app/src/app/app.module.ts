@@ -18,6 +18,7 @@ import { ThirdTaskComponent } from './components/third-task/third-task.component
 import { BlogPostsComponent } from './components/third-task/blog-posts/blog-posts.component';
 import { blogPostsReducer } from './state/blog-posts/blog-posts.reducer';
 import { BlogPostsEffects } from './state/blog-posts/blog-posts.effects';
+import { MaterialModule } from './modules/material.module';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { BlogPostsEffects } from './state/blog-posts/blog-posts.effects';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
+    MaterialModule,
     AuthModule.forRoot({
       ...environment.auth,
       authorizationParams: {
