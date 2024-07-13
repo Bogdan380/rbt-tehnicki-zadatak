@@ -7,12 +7,12 @@ export const blogPostsSelector = createSelector(
   selectBlogPosts,
   (state: BlogPostsState) => state.blogPosts
 );
-export const statusSelector = createSelector(
+export const blogPostsStatusSelector = createSelector(
   selectBlogPosts,
   (state: BlogPostsState) => state.loading
 );
 
-export const errorSelector = createSelector(
+export const blogPostsErrorSelector = createSelector(
   selectBlogPosts,
   (state: BlogPostsState) => state.error
 );

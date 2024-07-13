@@ -19,6 +19,8 @@ import { BlogPostsComponent } from './components/third-task/blog-posts/blog-post
 import { blogPostsReducer } from './state/blog-posts/blog-posts.reducer';
 import { BlogPostsEffects } from './state/blog-posts/blog-posts.effects';
 import { MaterialModule } from './modules/material.module';
+import { categoriesReducer } from './state/categories/categories.reducer';
+import { CategoriesEffects } from './state/categories/categories.effects';
 
 @NgModule({
   declarations: [
@@ -43,8 +45,11 @@ import { MaterialModule } from './modules/material.module';
         allowedList: [`${environment.dev.apiUrl}/*`],
       },
     }),
-    StoreModule.forRoot({ blogPosts: blogPostsReducer }),
-    EffectsModule.forRoot([BlogPostsEffects]),
+    StoreModule.forRoot({
+      blogPosts: blogPostsReducer,
+      categories: categoriesReducer,
+    }),
+    EffectsModule.forRoot([BlogPostsEffects, CategoriesEffects]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
   ],
   providers: [

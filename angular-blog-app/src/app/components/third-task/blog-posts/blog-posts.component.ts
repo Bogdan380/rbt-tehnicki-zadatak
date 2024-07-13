@@ -2,49 +2,79 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { loadBlogPosts } from '../../../state/blog-posts/blog-posts.actions';
 import {
+  blogPostsErrorSelector,
   blogPostsSelector,
-  errorSelector,
-  statusSelector,
+  blogPostsStatusSelector,
 } from '../../../state/blog-posts/blog-posts.selectors';
 import { AppState } from '../../../state/app.state';
 import { PageEvent } from '@angular/material/paginator';
 import { Movie } from '../../../models/Movie';
+import { loadCategories } from '../../../state/categories/categories.actions';
+import { categoriesSelector } from '../../../state/categories/categories.selectors';
+import { Category } from '../../../models/Category';
 
 @Component({
   selector: 'app-blog-posts',
   templateUrl: './blog-posts.component.html',
-  styleUrl: './blog-posts.component.scss',
+  styleUrls: ['./blog-posts.component.scss'],
 })
 export class BlogPostsComponent implements OnInit {
   public blogPosts$ = this.store.select(blogPostsSelector);
-  public loading$ = this.store.select(statusSelector);
-  public error$ = this.store.select(errorSelector);
+  public categories$ = this.store.select(categoriesSelector);
+  public loading$ = this.store.select(blogPostsStatusSelector);
+  public error$ = this.store.select(blogPostsErrorSelector);
 
   blogPosts: Movie[] = [];
+  categories: Category[] = [];
+  selectedCategoryId: number | 'all' = 'all';
 
   pageSize = 5;
   currentPage = 0;
   pagedMovies: Movie[] = [];
+  filteredItems: Movie[] = [];
 
   constructor(private store: Store<AppState>) {}
 
   ngOnInit() {
+    this.store.dispatch(loadCategories());
     this.store.dispatch(loadBlogPosts());
+    this.categories$.subscribe((data) => {
+      this.categories = [{ id: 0, name: 'All' }, ...data];
+    });
     this.blogPosts$.subscribe((data) => {
       this.blogPosts = data;
-      this.setPagedItems();
+      this.filterItems();
     });
+  }
+
+  filterItems() {
+    if (this.selectedCategoryId === 'all') {
+      this.filteredItems = this.blogPosts;
+    } else {
+      this.filteredItems = this.blogPosts.filter(
+        (blogPost) => blogPost.categoryId === this.selectedCategoryId
+      );
+    }
+    this.setPagedItems();
   }
 
   setPagedItems() {
     const startIndex = this.currentPage * this.pageSize;
     const endIndex = startIndex + this.pageSize;
-    this.pagedMovies = this.blogPosts.slice(startIndex, endIndex);
+    this.pagedMovies = this.filteredItems.slice(startIndex, endIndex);
   }
 
   handlePageEvent(event: PageEvent) {
     this.pageSize = event.pageSize;
     this.currentPage = event.pageIndex;
     this.setPagedItems();
+  }
+
+  handleCategoryChange(event: Event) {
+    const selectedId = (event.target as HTMLSelectElement).value;
+    this.selectedCategoryId =
+      Number(selectedId) === 0 ? 'all' : Number(selectedId);
+    this.currentPage = 0;
+    this.filterItems();
   }
 }

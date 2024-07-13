@@ -1,11 +1,28 @@
 <div class="container">
-  <h2 class="movies-heading">Movies</h2>
+  <div class="heading-category-box">
+    <h2 class="movies-heading">Movies</h2>
+    <div>
+      <label class="category-label" for="category-select"
+        >Select a category:</label
+      >
+      <select id="category-select" (change)="handleCategoryChange($event)">
+        <option *ngFor="let category of categories" [value]="category.id">
+          {{ category.name }}
+        </option>
+      </select>
+    </div>
+  </div>
 
   @if (loading$ | async) {
   <div class="message">Loading...</div>
   } @if (blogPosts$ | async) { @for (movie of pagedMovies; track movie.id) {
   <mat-card>
-    <mat-card-title>{{ movie.name }}</mat-card-title>
+    <mat-card-title>
+      <span>{{ movie.name }}</span>
+      <a class="view-more-link"
+        >View more <i class="material-icons">arrow_right_alt</i></a
+      >
+    </mat-card-title>
     <mat-card-content id="no-padding">{{ movie.description }}</mat-card-content>
   </mat-card>
   }} @if(error$ | async) {
@@ -13,7 +30,7 @@
   }
 
   <mat-paginator
-    [length]="blogPosts.length"
+    [length]="filteredItems.length"
     [pageSize]="pageSize"
     [pageSizeOptions]="[5]"
     (page)="handlePageEvent($event)"

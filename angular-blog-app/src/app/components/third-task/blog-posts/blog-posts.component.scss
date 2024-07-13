@@ -33,6 +33,10 @@ mat-card {
 mat-card-title {
   font-size: $font-size-medium;
   margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 500;
 }
 
 mat-card-content {
@@ -42,7 +46,7 @@ mat-card-content {
 
 mat-paginator {
   background-color: $background-color;
-  margin: 2rem auto;
+  margin: 6rem auto 0 auto;
   width: 60%;
   border-radius: $border-radius;
   font-size: $font-size-medium;
@@ -50,4 +54,51 @@ mat-paginator {
 
 #no-padding {
   padding-bottom: 0;
+}
+
+.view-more-link {
+  display: flex;
+  align-items: center;
+  color: $primary-color;
+  cursor: pointer;
+
+  &:hover {
+    color: $secondary-color;
+    transform: scale(1.05);
+  }
+}
+
+.heading-category-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.category-label {
+  font-size: $font-size-medium;
+}
+
+#category-select {
+  width: 100%;
+  padding: 1rem;
+  margin: 0.5rem 0 1rem 0;
+  font-size: $font-size-medium;
+  border: 1px solid #ccc;
+  border-radius: $border-radius;
+  background-color: $white-color;
+  cursor: pointer;
+
+  &:hover {
+    border-color: #888;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: #666;
+  }
+}
+
+#category-select option {
+  padding: 1rem;
+  font-size: $font-size-medium;
 }
