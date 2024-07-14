@@ -27,6 +27,7 @@ export class SinglePostComponent {
   public loading$ = this.store.select(commentsStatusSelector);
 
   newCommentText: string = '';
+  showError: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -53,6 +54,14 @@ export class SinglePostComponent {
         addComment({ movieId: this.movie.id, comment: this.newCommentText })
       );
       this.newCommentText = '';
+    }
+  }
+
+  showErrorMessage() {
+    if (!this.newCommentText) {
+      this.showError = true;
+    } else {
+      this.showError = false;
     }
   }
 }

@@ -25,6 +25,8 @@ import { SinglePostComponent } from './components/third-task/single-post/single-
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { commentsReducer } from './state/comments/comments.reducer';
 import { CommentsEffects } from './state/comments/comments.effects';
+import { MovieTrailerComponent } from './components/third-task/movie-trailer/movie-trailer.component';
+import { SafeUrlPipe } from './pipes/safe-url.pipe';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,8 @@ import { CommentsEffects } from './state/comments/comments.effects';
     BlogPostsComponent,
     SinglePostComponent,
     NotFoundComponent,
+    MovieTrailerComponent,
+    SafeUrlPipe,
   ],
   imports: [
     BrowserModule,

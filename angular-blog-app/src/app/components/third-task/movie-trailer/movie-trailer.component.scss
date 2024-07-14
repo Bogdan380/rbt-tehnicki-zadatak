@@ -1,0 +1,28 @@
+$font-size-medium: 1.8rem;
+$font-size-small: 1.4rem;
+
+.trailer-heading {
+  font-size: $font-size-medium;
+  margin: 2.4rem 0 1.4rem 0;
+}
+
+.trailer-link {
+  display: inline-block;
+  padding: 0.8rem 1.6rem;
+  background-color: #2196f3;
+  color: white;
+  text-decoration: none;
+  border-radius: 0.6rem;
+  transition: background-color 0.3s ease;
+  margin-bottom: 1.8rem;
+  font-size: $font-size-small;
+}
+
+.trailer-link:hover {
+  background-color: #0d47a1;
+}
+
+.trailer-link .material-icons {
+  vertical-align: middle;
+  margin-left: 4px;
+}

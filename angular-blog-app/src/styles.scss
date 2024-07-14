@@ -26,3 +26,21 @@ body {
 .mat-mdc-text-field-wrapper {
   padding: 0 0 0 1rem !important;
 }
+
+.mat-mdc-paginator-range-label {
+  @media (max-width: 450px) {
+    margin: 0 !important;
+  }
+}
+
+.mat-mdc-paginator-container {
+  @media (max-width: 450px) {
+    justify-content: space-between !important;
+  }
+}
+
+.mat-mdc-paginator-navigation-next {
+  @media (max-width: 450px) {
+    margin-left: -1.6rem !important;
+  }
+}

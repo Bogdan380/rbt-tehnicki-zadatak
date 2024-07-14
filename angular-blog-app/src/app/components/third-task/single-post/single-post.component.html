@@ -9,6 +9,8 @@
     <p class="movie-description">{{ movie.description }}</p>
   </div>
 
+  <app-movie-trailer [imdbId]="movie.imdbId"></app-movie-trailer>
+
   <div class="comments-section">
     <h2 class="comments-title">Comments</h2>
     @if (loading$ | async) {
@@ -30,6 +32,7 @@
     <form class="comment-form" (ngSubmit)="addComment()">
       <mat-form-field class="comment-input">
         <textarea
+          (input)="showError = false"
           [disabled]="!(auth.isAuthenticated$ | async)"
           matInput
           placeholder="Write your comment here"
@@ -38,8 +41,12 @@
           required
         ></textarea>
       </mat-form-field>
-      @if(auth.isAuthenticated$ | async) {
-      <button class="submit-button" type="submit">Submit</button>
+      @if (showError) {
+      <div class="error-message">Please write your comment</div>
+      } @if(auth.isAuthenticated$ | async) {
+      <button (click)="showErrorMessage()" class="submit-button" type="submit">
+        Submit
+      </button>
       } @else {
       <div class="comment-message">
         You must be logged in to post a comment!

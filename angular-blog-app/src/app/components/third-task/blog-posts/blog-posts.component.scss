@@ -10,7 +10,13 @@ $border-radius: 0.6rem;
 
 .container {
   padding: 3rem 6rem;
-  width: 80%;
+  width: 100%;
+  max-width: 140rem;
+  margin: 0 auto;
+
+  @media (max-width: 1200px) {
+    padding: 1.5rem 3rem;
+  }
 }
 
 .movies-heading {
@@ -50,6 +56,18 @@ mat-paginator {
   width: 60%;
   border-radius: $border-radius;
   font-size: $font-size-medium;
+
+  @media (max-width: 768px) {
+    width: 80%;
+  }
+
+  @media (max-width: 550px) {
+    width: 100%;
+  }
+
+  @media (max-width: 450px) {
+    font-size: $font-size-small;
+  }
 }
 
 #no-padding {
@@ -102,4 +120,16 @@ mat-paginator {
 #category-select option {
   padding: 1rem;
   font-size: $font-size-medium;
+}
+
+.mat-mdc-paginator-range-label {
+  @media (max-width: 450px) {
+    margin: 0 !important;
+  }
+}
+
+.category-container {
+  @media (max-width: 450px) {
+    width: 16rem;
+  }
 }

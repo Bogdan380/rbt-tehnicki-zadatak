@@ -13,6 +13,10 @@ $font-size-small: 1.4rem;
   margin: 0 auto;
   padding: 2rem;
   color: $black-color;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 }
 
 .movie-details {
@@ -22,7 +26,7 @@ $font-size-small: 1.4rem;
 
   .movie-title {
     font-size: $font-size-large;
-    margin-bottom: 0.6rem;
+    margin-bottom: 1rem;
   }
 
   .movie-image {
@@ -50,6 +54,14 @@ $font-size-small: 1.4rem;
 
     &:hover {
       background-color: #c6313e;
+    }
+
+    @media (max-width: 450px) {
+      font-size: $font-size-small;
+      padding: 0.3rem 0.8rem 0.3rem 0.4rem;
+      top: -2%;
+      left: -2%;
+      gap: 0.2rem;
     }
   }
 }
@@ -117,4 +129,10 @@ $font-size-small: 1.4rem;
 .comment-message {
   font-size: $font-size-medium;
   color: $warning-color;
+}
+
+.error-message {
+  font-size: $font-size-small;
+  color: $warning-color;
+  margin: -1rem 0 1.6rem 0;
 }

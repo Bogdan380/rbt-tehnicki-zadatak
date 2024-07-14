@@ -1,0 +1,15 @@
+@if (movie) { @if(trailerUrl) {
+<div>
+  <h2 class="trailer-heading">Trailer</h2>
+  <a class="trailer-link" href="{{ trailerUrl }}" target="_blank"
+    >Watch Trailer
+    <mat-icon aria-hidden="false" aria-label="Open trailer link"
+      >play_circle_outline</mat-icon
+    ></a
+  >
+</div>
+} @else {
+<p>No trailer available</p>
+} } @else {
+<p>{{ error }}</p>
+}
