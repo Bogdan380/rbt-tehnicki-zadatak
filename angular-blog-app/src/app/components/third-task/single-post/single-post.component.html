@@ -1,5 +1,9 @@
 <div class="movie-container">
   <div class="movie-details">
+    <button class="back-button" routerLink="/third-task/blog-posts">
+      <i class="material-icons">arrow_back_ios_new</i>
+      <span>Back</span>
+    </button>
     <h1 class="movie-title">{{ movie.name }}</h1>
     <img [src]="movie.imageUrl" alt="{{ movie.name }}" class="movie-image" />
     <p class="movie-description">{{ movie.description }}</p>
@@ -9,9 +13,9 @@
     <h2 class="comments-title">Comments</h2>
     @if (loading$ | async) {
     <div class="message">Loading...</div>
-    } @else if(error$ | async) {
+    } @if(error$ | async) {
     <div class="message">No comments for this movie yet!</div>
-    } @else {
+    } @else{
     <div class="comment">
       @if (comments$ | async; as comments) { @for (comment of comments; track
       comment.id) {
@@ -26,6 +30,7 @@
     <form class="comment-form" (ngSubmit)="addComment()">
       <mat-form-field class="comment-input">
         <textarea
+          [disabled]="!(auth.isAuthenticated$ | async)"
           matInput
           placeholder="Write your comment here"
           [(ngModel)]="newCommentText"
@@ -33,7 +38,13 @@
           required
         ></textarea>
       </mat-form-field>
+      @if(auth.isAuthenticated$ | async) {
       <button class="submit-button" type="submit">Submit</button>
+      } @else {
+      <div class="comment-message">
+        You must be logged in to post a comment!
+      </div>
+      }
     </form>
   </div>
 </div>

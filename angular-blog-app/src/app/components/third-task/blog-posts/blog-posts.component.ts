@@ -13,6 +13,7 @@ import { loadCategories } from '../../../state/categories/categories.actions';
 import { categoriesSelector } from '../../../state/categories/categories.selectors';
 import { Category } from '../../../models/Category';
 import { Subject, takeUntil } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-blog-posts',
@@ -35,9 +36,15 @@ export class BlogPostsComponent implements OnInit, OnDestroy {
   pagedMovies: Movie[] = [];
   filteredItems: Movie[] = [];
 
-  constructor(private store: Store<AppState>) {}
+  constructor(private store: Store<AppState>, private router: Router) {}
 
   ngOnInit() {
+    const redirectAfterLogout = sessionStorage.getItem('redirectAfterLogout');
+    if (redirectAfterLogout) {
+      this.router.navigateByUrl(redirectAfterLogout);
+      sessionStorage.removeItem('redirectAfterLogout');
+    }
+
     this.store.dispatch(loadCategories());
     this.store.dispatch(loadBlogPosts());
     this.categories$.pipe(takeUntil(this.destroy$)).subscribe((data) => {

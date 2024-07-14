@@ -1,16 +1,19 @@
-import { Location } from '@angular/common';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Movie } from '../../../models/Movie';
 import { BlogPostsService } from '../../../services/blog-posts.service';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../../state/app.state';
-import { loadComments } from '../../../state/comments/comments.actions';
+import {
+  addComment,
+  loadComments,
+} from '../../../state/comments/comments.actions';
 import {
   commentsErrorSelector,
   commentsSelector,
   commentsStatusSelector,
 } from '../../../state/comments/comments.selectors';
+import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-single-post',
@@ -28,8 +31,8 @@ export class SinglePostComponent {
   constructor(
     private route: ActivatedRoute,
     private blogPostsService: BlogPostsService,
-    private location: Location,
-    private store: Store<AppState>
+    private store: Store<AppState>,
+    public auth: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -46,12 +49,10 @@ export class SinglePostComponent {
 
   addComment() {
     if (this.newCommentText.trim()) {
-      // this.store.dispatch(addComment({ text: this.newCommentText }));
-      // this.newCommentText = '';
+      this.store.dispatch(
+        addComment({ movieId: this.movie.id, comment: this.newCommentText })
+      );
+      this.newCommentText = '';
     }
-  }
-
-  goBack(): void {
-    this.location.back();
   }
 }

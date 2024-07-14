@@ -1,6 +1,6 @@
 $primary-color: #1b4d3e;
 $secondary-color: #006a4e;
-$background-color: #c2e3f0;
+$warning-color: #e63946;
 $white-color: #fff;
 $black-color: #000;
 $font-size-large: 2.4rem;
@@ -8,7 +8,7 @@ $font-size-medium: 1.8rem;
 $font-size-small: 1.4rem;
 
 .movie-container {
-  max-width: 80rem;
+  max-width: 100rem;
   width: 80%;
   margin: 0 auto;
   padding: 2rem;
@@ -18,6 +18,7 @@ $font-size-small: 1.4rem;
 .movie-details {
   text-align: center;
   margin-bottom: 2rem;
+  position: relative;
 
   .movie-title {
     font-size: $font-size-large;
@@ -30,6 +31,26 @@ $font-size-small: 1.4rem;
 
   .movie-description {
     font-size: $font-size-small;
+  }
+
+  .back-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    background-color: $warning-color;
+    color: $white-color;
+    border: none;
+    border-radius: 0.6rem;
+    cursor: pointer;
+    font-size: $font-size-medium;
+    padding: 0.6rem 1.6rem 0.6rem 0.8rem;
+
+    &:hover {
+      background-color: #c6313e;
+    }
   }
 }
 
@@ -76,7 +97,7 @@ $font-size-small: 1.4rem;
   background-color: $white-color;
   text-decoration: none;
   border: 1px solid $primary-color;
-  padding: 0.6rem 2rem;
+  padding: 0.8rem 2rem;
   font-weight: 500;
   border-radius: 0.6rem;
   transition: background-color 0.3s, color 0.3s;
@@ -91,4 +112,9 @@ $font-size-small: 1.4rem;
 
 .comment-form {
   text-align: center;
+}
+
+.comment-message {
+  font-size: $font-size-medium;
+  color: $warning-color;
 }

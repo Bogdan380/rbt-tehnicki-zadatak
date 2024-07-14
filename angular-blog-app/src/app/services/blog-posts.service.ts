@@ -29,4 +29,10 @@ export class BlogPostsService {
   getComments(id: number): Observable<Comment[]> {
     return this.http.get<Comment[]>(`${this.moviesUrl}/${id}/comments`);
   }
+
+  addComment(movieId: number, comment: string): Observable<Comment> {
+    return this.http.post<Comment>(`${this.moviesUrl}/${movieId}/comments`, {
+      comment,
+    });
+  }
 }

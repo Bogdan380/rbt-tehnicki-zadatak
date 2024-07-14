@@ -14,12 +14,7 @@
         <p>Welcome,</p>
         <p>{{ user.name }}</p>
       </div>
-      <button
-        class="nav-button"
-        (click)="auth.logout({ logoutParams: { returnTo: document.URL } })"
-      >
-        Logout
-      </button>
+      <button class="nav-button" (click)="handleLogout()">Logout</button>
     </div>
 
     } @else {

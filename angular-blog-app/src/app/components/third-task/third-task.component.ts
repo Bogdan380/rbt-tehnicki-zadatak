@@ -1,7 +1,7 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
-import { DOCUMENT } from '@angular/common';
 import { User } from '../../models/User';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-third-task',
@@ -15,10 +15,7 @@ export class ThirdTaskComponent implements OnInit {
     email: '',
   };
 
-  constructor(
-    @Inject(DOCUMENT) public document: Document,
-    public auth: AuthService
-  ) {}
+  constructor(public auth: AuthService, private router: Router) {}
 
   ngOnInit() {
     if (this.auth.user$) {
@@ -26,5 +23,13 @@ export class ThirdTaskComponent implements OnInit {
         this.user = data as User;
       });
     }
+  }
+
+  handleLogout() {
+    const currentRoute = this.router.url;
+    this.auth.logout({
+      logoutParams: { returnTo: 'http://localhost:4200/third-task/blog-posts' },
+    });
+    sessionStorage.setItem('redirectAfterLogout', currentRoute);
   }
 }
