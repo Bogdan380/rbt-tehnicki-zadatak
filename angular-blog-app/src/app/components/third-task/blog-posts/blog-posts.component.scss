@@ -61,6 +61,7 @@ mat-paginator {
   align-items: center;
   color: $primary-color;
   cursor: pointer;
+  text-decoration: none;
 
   &:hover {
     color: $secondary-color;

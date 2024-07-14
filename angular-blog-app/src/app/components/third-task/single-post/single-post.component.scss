@@ -1,0 +1,94 @@
+$primary-color: #1b4d3e;
+$secondary-color: #006a4e;
+$background-color: #c2e3f0;
+$white-color: #fff;
+$black-color: #000;
+$font-size-large: 2.4rem;
+$font-size-medium: 1.8rem;
+$font-size-small: 1.4rem;
+
+.movie-container {
+  max-width: 80rem;
+  width: 80%;
+  margin: 0 auto;
+  padding: 2rem;
+  color: $black-color;
+}
+
+.movie-details {
+  text-align: center;
+  margin-bottom: 2rem;
+
+  .movie-title {
+    font-size: $font-size-large;
+    margin-bottom: 0.6rem;
+  }
+
+  .movie-image {
+    margin-bottom: 1rem;
+  }
+
+  .movie-description {
+    font-size: $font-size-small;
+  }
+}
+
+.comments-section {
+  margin-bottom: 2rem;
+
+  .comments-title {
+    font-size: $font-size-medium;
+    margin: 0.6rem 0;
+  }
+
+  .comment {
+    padding: 1rem;
+    border-bottom: 1px solid #ddd;
+
+    .comment-text {
+      font-size: $font-size-small;
+      margin-bottom: 0.6rem;
+    }
+  }
+}
+
+.add-comment-section {
+  .add-comment-title {
+    font-size: $font-size-medium;
+    margin-bottom: 1.4rem;
+  }
+
+  .comment-input {
+    width: 100%;
+    font-size: $font-size-small;
+    margin-top: 0.6rem;
+  }
+}
+
+.message {
+  font-size: 1.6rem;
+  margin-top: 1rem;
+}
+
+.submit-button {
+  font-size: 1.6rem;
+  color: $primary-color;
+  background-color: $white-color;
+  text-decoration: none;
+  border: 1px solid $primary-color;
+  padding: 0.6rem 2rem;
+  font-weight: 500;
+  border-radius: 0.6rem;
+  transition: background-color 0.3s, color 0.3s;
+  width: 10rem;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $primary-color;
+    color: $white-color;
+  }
+}
+
+.comment-form {
+  text-align: center;
+}

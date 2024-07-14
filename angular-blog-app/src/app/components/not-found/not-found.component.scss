@@ -1,0 +1,40 @@
+$primary-color: #1b4d3e;
+$white-color: #fff;
+$black-color: #000;
+
+.not-found-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.not-found-title {
+  font-size: 8rem;
+  font-weight: bold;
+  margin-bottom: 0;
+  color: $primary-color;
+}
+
+.not-found-message {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: $black-color;
+}
+
+.not-found-link {
+  font-size: 1.4rem;
+  color: $primary-color;
+  text-decoration: none;
+  border: 2px solid $primary-color;
+  padding: 1rem 2rem;
+  border-radius: 0.6rem;
+  transition: background-color 0.3s, color 0.3s;
+
+  &:hover {
+    background-color: $primary-color;
+    color: $white-color;
+  }
+}

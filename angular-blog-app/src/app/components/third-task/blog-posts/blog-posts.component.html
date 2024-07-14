@@ -19,7 +19,7 @@
   <mat-card>
     <mat-card-title>
       <span>{{ movie.name }}</span>
-      <a class="view-more-link"
+      <a [routerLink]="[movie.id]" class="view-more-link"
         >View more <i class="material-icons">arrow_right_alt</i></a
       >
     </mat-card-title>

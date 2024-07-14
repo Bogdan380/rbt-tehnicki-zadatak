@@ -23,13 +23,13 @@ export const blogPostsReducer = createReducer(
   on(loadBlogPosts, (state) => ({ ...state, loading: true })),
   on(loadBlogPostsSuccess, (state, { blogPosts }) => ({
     ...state,
-    blogPosts: blogPosts,
+    blogPosts,
     error: null,
     loading: false,
   })),
   on(loadBlogPostsFailure, (state, { error }) => ({
     ...state,
-    error: error,
+    error,
     loading: false,
   }))
 );

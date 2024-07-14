@@ -21,6 +21,10 @@ import { BlogPostsEffects } from './state/blog-posts/blog-posts.effects';
 import { MaterialModule } from './modules/material.module';
 import { categoriesReducer } from './state/categories/categories.reducer';
 import { CategoriesEffects } from './state/categories/categories.effects';
+import { SinglePostComponent } from './components/third-task/single-post/single-post.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { commentsReducer } from './state/comments/comments.reducer';
+import { CommentsEffects } from './state/comments/comments.effects';
 
 @NgModule({
   declarations: [
@@ -30,6 +34,8 @@ import { CategoriesEffects } from './state/categories/categories.effects';
     SecondTaskComponent,
     ThirdTaskComponent,
     BlogPostsComponent,
+    SinglePostComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,8 +54,13 @@ import { CategoriesEffects } from './state/categories/categories.effects';
     StoreModule.forRoot({
       blogPosts: blogPostsReducer,
       categories: categoriesReducer,
+      comments: commentsReducer,
     }),
-    EffectsModule.forRoot([BlogPostsEffects, CategoriesEffects]),
+    EffectsModule.forRoot([
+      BlogPostsEffects,
+      CategoriesEffects,
+      CommentsEffects,
+    ]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
   ],
   providers: [

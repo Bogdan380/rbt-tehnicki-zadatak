@@ -18,3 +18,11 @@ body {
 .cdk-overlay-container {
   display: none;
 }
+
+.mdc-line-ripple::before {
+  border-bottom-width: 1px !important;
+}
+
+.mat-mdc-text-field-wrapper {
+  padding: 0 0 0 1rem !important;
+}

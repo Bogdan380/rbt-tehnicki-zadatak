@@ -5,6 +5,8 @@ import { FirstTaskComponent } from './components/first-task/first-task.component
 import { SecondTaskComponent } from './components/second-task/second-task.component';
 import { ThirdTaskComponent } from './components/third-task/third-task.component';
 import { BlogPostsComponent } from './components/third-task/blog-posts/blog-posts.component';
+import { SinglePostComponent } from './components/third-task/single-post/single-post.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -30,11 +32,12 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'blog-posts', pathMatch: 'full' },
       { path: 'blog-posts', component: BlogPostsComponent },
+      { path: 'blog-posts/:id', component: SinglePostComponent },
     ],
   },
   {
     path: '**',
-    component: HomePageComponent,
+    component: NotFoundComponent,
   },
 ];
 

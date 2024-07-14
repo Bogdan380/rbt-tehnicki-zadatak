@@ -1,0 +1,39 @@
+<div class="movie-container">
+  <div class="movie-details">
+    <h1 class="movie-title">{{ movie.name }}</h1>
+    <img [src]="movie.imageUrl" alt="{{ movie.name }}" class="movie-image" />
+    <p class="movie-description">{{ movie.description }}</p>
+  </div>
+
+  <div class="comments-section">
+    <h2 class="comments-title">Comments</h2>
+    @if (loading$ | async) {
+    <div class="message">Loading...</div>
+    } @else if(error$ | async) {
+    <div class="message">No comments for this movie yet!</div>
+    } @else {
+    <div class="comment">
+      @if (comments$ | async; as comments) { @for (comment of comments; track
+      comment.id) {
+      <p class="comment-text">{{ comment.comment }}</p>
+      }}
+    </div>
+    }
+  </div>
+
+  <div class="add-comment-section">
+    <h2 class="add-comment-title">Add a Comment</h2>
+    <form class="comment-form" (ngSubmit)="addComment()">
+      <mat-form-field class="comment-input">
+        <textarea
+          matInput
+          placeholder="Write your comment here"
+          [(ngModel)]="newCommentText"
+          name="commentText"
+          required
+        ></textarea>
+      </mat-form-field>
+      <button class="submit-button" type="submit">Submit</button>
+    </form>
+  </div>
+</div>

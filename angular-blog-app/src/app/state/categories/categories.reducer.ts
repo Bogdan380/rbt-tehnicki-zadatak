@@ -23,13 +23,13 @@ export const categoriesReducer = createReducer(
   on(loadCategories, (state) => ({ ...state, loading: true })),
   on(loadCategoriesSuccess, (state, { categories }) => ({
     ...state,
-    categories: categories,
+    categories,
     error: null,
     loading: false,
   })),
   on(loadCategoriesFailure, (state, { error }) => ({
     ...state,
-    error: error,
+    error,
     loading: false,
   }))
 );
