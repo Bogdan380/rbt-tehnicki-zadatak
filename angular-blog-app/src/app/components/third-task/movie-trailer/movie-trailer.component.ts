@@ -23,13 +23,13 @@ export class MovieTrailerComponent implements OnChanges, OnDestroy {
 
   constructor(private movieService: MovieTrailerService) {}
 
-  ngOnChanges(changes: SimpleChanges): void {
+  ngOnChanges(changes: SimpleChanges) {
     if (changes['imdbId'] && changes['imdbId'].currentValue) {
       this.fetchMovieDetails(changes['imdbId'].currentValue);
     }
   }
 
-  fetchMovieDetails(imdbId: string): void {
+  fetchMovieDetails(imdbId: string) {
     this.movieService
       .getMovieDetailsByImdbId(imdbId)
       .pipe(
@@ -37,7 +37,7 @@ export class MovieTrailerComponent implements OnChanges, OnDestroy {
           this.movie = movie;
           return this.movieService.getMovieVideos(movie.id);
         }),
-        catchError((error) => {
+        catchError(() => {
           this.error = 'Error fetching movie details';
           return [];
         }),
@@ -57,7 +57,7 @@ export class MovieTrailerComponent implements OnChanges, OnDestroy {
       });
   }
 
-  ngOnDestroy(): void {
+  ngOnDestroy() {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
   }

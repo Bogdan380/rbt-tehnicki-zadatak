@@ -36,11 +36,11 @@ export class SinglePostComponent {
     public auth: AuthService
   ) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.getMovie();
   }
 
-  getMovie(): void {
+  getMovie() {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.store.dispatch(loadComments({ movieId: id }));
     this.blogPostsService.getMovie(id).subscribe((movie: Movie) => {
